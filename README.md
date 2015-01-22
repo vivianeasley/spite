@@ -1,6 +1,6 @@
 # Spite: Micro Sprite Library
 
-This is the beginnings of an extremely simple spriting library. To user add an image to your html with a wrapper:
+This is the beginnings of an extremely simple spriting library. To use, add an image to your html with a wrapper:
 
 ```html
 <div class="wrapper">
