@@ -1,62 +1,61 @@
+spite = (function ( ) {
 
-function spite( spriteSheetClass, viewHoleClass, animationSpeed, maxFrameNumber ) {
+  var fPlayerNode;
 
-  var fSprites ;
-  var fViewHole ;
+  return {
+    animate:animate
+  };
 
-  init ( ) ;
+  function animate( spriteSheetClass, viewHoleClass, animationSpeed, maxFrameNumber ) {
 
-  return;
+    var fSprites = document.querySelector(spriteSheetClass);
+    var fViewHole = document.querySelector(viewHoleClass);
 
-  function init ( ) {
-    fSprites  = document.querySelector(spriteSheetClass);
-    fViewHole = document.querySelector(viewHoleClass);
+    beginAnimationProcess ( startAnimation )
 
-    beginAnimationProcess ( startAnimation );
+    return ;
 
-  }
+    function beginAnimationProcess ( callback ) {
+      var viewHoleHeight = fViewHole.clientHeight;
+      var viewHoleWidth = fViewHole.clientWidth;
 
-  function beginAnimationProcess ( callback ) {
-    var viewHoleHeight = fViewHole.clientHeight;
-    var viewHoleWidth = fViewHole.clientWidth;
+      var imageHeight = fSprites.clientHeight;
+      var imageWidth = fSprites.clientWidth;
 
-    var imageHeight = fSprites.clientHeight;
-    var imageWidth = fSprites.clientWidth;
+      var framesWide = Math.round(imageWidth/viewHoleWidth);
+      var framesTall = Math.round(imageHeight/viewHoleHeight);
 
-    var framesWide = Math.round(imageWidth/viewHoleWidth);
-    var framesTall = Math.round(imageHeight/viewHoleHeight);
+      if ( maxFrameNumber !== undefined ) {
+        var totalFrames = maxFrameNumber;
+      } else {
+        var totalFrames = framesWide*framesTall;
+      }
 
-    if ( maxFrameNumber !== undefined ) {
-      var totalFrames = maxFrameNumber;
-    } else {
-      var totalFrames = framesWide*framesTall;
+      callback( viewHoleHeight, viewHoleWidth, framesWide, framesTall, totalFrames );
+
     }
 
-    callback( viewHoleHeight, viewHoleWidth, framesWide, framesTall, totalFrames );
 
-  }
+    function startAnimation ( viewHoleHeight, viewHoleWidth, framesWide, framesTall, totalFrames ) {
 
+      function animate(timestamp) {
 
-  function startAnimation ( viewHoleHeight, viewHoleWidth, framesWide, framesTall, totalFrames ) {
+        var frameNumber = (Math.floor(timestamp/animationSpeed))%(totalFrames);
 
-    function animate(timestamp) {
+        var rightShift = frameNumber%framesWide;
+        var downShift  = Math.floor(frameNumber/framesWide)%framesTall;
 
-      var frameNumber = (Math.floor(timestamp/animationSpeed))%(totalFrames);
+        var moveSide   = rightShift*viewHoleWidth;
+        var moveUpDown = downShift*viewHoleHeight;
 
-      var rightShift = frameNumber%framesWide;
-      var downShift  = Math.floor(frameNumber/framesWide)%framesTall;
+        fSprites.style.transform = "translate( -" + moveSide + "px, -" + moveUpDown + "px)";
 
-      var moveSide   = rightShift*viewHoleWidth;
-      var moveUpDown = downShift*viewHoleHeight;
+        requestAnimationFrame(animate);
 
-      fSprites.style.transform = "translate( -" + moveSide + "px, -" + moveUpDown + "px)";
+      }
 
       requestAnimationFrame(animate);
-
     }
 
-    requestAnimationFrame(animate);
   }
-
-}
-
+})( );
