@@ -11,7 +11,7 @@ This is the beginnings of an extremely simple spriting library. To use, add an i
 The wrapper must have overflow: hidden; and be the width and height of exactly one frame of your sprite.
 
 Then you can call 
-*spite( img class, wrapper class, milliseconds between frames, max number of frames in your animation ) ;
+* spite( img class, wrapper class, milliseconds between frames, max number of frames in your animation ) ;
 
 
 
