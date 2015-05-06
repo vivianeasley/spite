@@ -4,7 +4,7 @@ This is the beginnings of an extremely simple spriting library. To use, add an i
 
 # Demo
 
-*http://robertpage.github.io/spite/
+* http://robertpage.github.io/spite/
 
 # How to Use
 
@@ -17,7 +17,7 @@ This is the beginnings of an extremely simple spriting library. To use, add an i
 The wrapper must have overflow: hidden; and be the width and height of exactly one frame of your sprite.
 
 Then you can call 
-* spite( img class, wrapper class, milliseconds between frames, max number of frames in your animation ) ;
+* spite.animate( img class, wrapper class, milliseconds between frames, max number of frames in your animation ) ;
 
 
 
