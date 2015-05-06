@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="spite.js" charset="utf-8"></script>
+<style type="text/css">
+  .wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -60px 0 0 -60px;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+
+</style>
+</head>
+  <body>
+
+    <div class="wrapper">
+      <img class="animate-sprite-sheet" src="cube.png" alt="magic" height="720" width="600">
+    </div>
+
+    <script>
+      spite.animate( '.animate-sprite-sheet', '.wrapper', 50, 30 )
+    </script>
+
+  </body>
+</html>
+
