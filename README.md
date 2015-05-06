@@ -2,6 +2,12 @@
 
 This is the beginnings of an extremely simple spriting library. To use, add an image to your html with a wrapper:
 
+# Demo
+
+*http://robertpage.github.io/spite/
+
+# How to Use
+
 ```html
 <div class="wrapper">
   <img class="animate-sprite-sheet" src="cube.png" alt="magic" height="720" width="600">
