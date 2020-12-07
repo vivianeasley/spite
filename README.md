@@ -4,7 +4,7 @@ This is the beginnings of an extremely simple spriting library. To use, add an i
 
 # Demo
 
-* http://robertpage.github.io/spite/
+* https://robertpage.github.io/spite/
 
 # How to Use
 
